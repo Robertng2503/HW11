@@ -9,6 +9,9 @@ const app = express();
 app.use(express.static("public"))
 app.use(express.urlencoded({extended: false}))
 app.use(express.json())
+require('dotenv').config()
+
+const PORT = process.env.PORT || 3001
 
 // app.get("/assets/css/styles.css", (req,res) => {
 //     res.sendFile(path.join(__dirname,"./public/assets/css/styles.css" ))
@@ -47,6 +50,6 @@ app.post("/api/notes", (req, res) => {
 })
 
 
-app.listen(3001, function() {
+app.listen(PORT, function() {
     console.log("Server has started!")
 })
